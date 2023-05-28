@@ -1,0 +1,17 @@
+.cell-container {
+    width: 500px;
+    height: 500px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    flex: 1;
+    display: flex;
+}
+
+.cell {
+    flex: 1;
+    border: 1px solid red;
+}

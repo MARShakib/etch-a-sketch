@@ -75,3 +75,16 @@ rainbowButton.addEventListener('click', () => {
 clearButton.addEventListener('click', () => {
     cells.forEach(cell => cell.style.backgroundColor = 'white');
 });
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
+slider.addEventListener('change', (e) => {
+    numberOfGrid = e.target.value;
+    generateCells(numberOfGrid);
+}, false);

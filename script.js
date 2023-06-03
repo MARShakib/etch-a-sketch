@@ -18,25 +18,31 @@ function generateCells(n){
         cellContainer.appendChild(row);
     }
     cells = document.querySelectorAll('.cell');
-    cells.forEach(cell => cell.addEventListener('click',changeColor));
+    cells.forEach(cell => cell.addEventListener('mouseover',changeColor));
+    cells.forEach(cell => cell.addEventListener('mousedown',changeColor));
 }
 
 function clearCells(){
     cellContainer.innerHTML = '';
 }
 
-let blackButtonSelected = true;
+let colorButtonSelected = true;
 let whiteButtonSelected = false;
 let rainbowButtonSelected = false;
 
-function changeColor(){
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+
+function changeColor(e){
+    if (e.type === 'mouseover' && !mouseDown) return;
     if(whiteButtonSelected === true){
         this.style.backgroundColor = 'white';
     }
     else if(rainbowButtonSelected === true){
         this.style.backgroundColor = getRandomColor();
     }
-    else this.style.backgroundColor = 'black';
+    else this.style.backgroundColor = colorPicker.value;
     
 }
 
@@ -48,28 +54,32 @@ function getRandomColor(){
 }
 
 
-
-const blackButton = document.querySelector('.black');
+const colorPicker = document.querySelector('.colorPicker');
+const colorButton = document.querySelector('.color');
 const whiteButton = document.querySelector('.white');
 const rainbowButton = document.querySelector('.rainbow');
 const clearButton = document.querySelector('.clear');
 
-blackButton.addEventListener('click', () => {
-    blackButtonSelected = true;
+colorPicker.addEventListener('input', () => {
+    // console.log(colorPicker.value);
+});
+
+colorButton.addEventListener('click', () => {
+    colorButtonSelected = true;
     whiteButtonSelected = false;
     rainbowButtonSelected = false;
 });
 
 whiteButton.addEventListener('click', () => {
     whiteButtonSelected = true;
-    blackButtonSelected = false;
+    colorButtonSelected = false;
     rainbowButtonSelected = false;
 });
 
 rainbowButton.addEventListener('click', () => {
     rainbowButtonSelected = true;
     whiteButtonSelected = false;
-    blackButtonSelected = false;
+    colorButtonSelected = false;
 });
 
 clearButton.addEventListener('click', () => {
@@ -78,10 +88,10 @@ clearButton.addEventListener('click', () => {
 
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
-output.innerHTML = slider.value;
+output.innerHTML = `${slider.value} x ${slider.value}`;
 
 slider.oninput = function() {
-  output.innerHTML = this.value;
+  output.innerHTML = `${this.value} x ${this.value}`;
 }
 
 slider.addEventListener('change', (e) => {

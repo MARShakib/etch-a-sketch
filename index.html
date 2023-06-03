@@ -10,15 +10,19 @@
 </head>
 <body>
     <div class="cell-container"></div>
-    <div class="buttons">
-        <button class="black">Black</button>
-        <button class="rainbow">Rainbow</button>
-        <button class="white">White</button>
-        <button class="clear">Clear</button>
+    <div class="settings">
+        <div class="buttons">
+            <input type="color" class="colorPicker" value="#333333">
+            <button class="color">Color</button>
+            <button class="rainbow">Rainbow</button>
+            <button class="white">White</button>
+            <button class="clear">Clear</button>
+        </div>
+        <div class="slidecontainer">
+            <p style="text-align: center;"><span id="demo"></span></p>
+            <input type="range" min="1" max="64" value="16" class="slider" id="myRange">
+        </div>
     </div>
-    <div class="slidecontainer">
-        <p>Value: <span id="demo"></span></p>
-        <input type="range" min="1" max="64" value="16" class="slider" id="myRange">
-    </div>
+    
 </body>
 </html>

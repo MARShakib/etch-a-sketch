@@ -68,23 +68,44 @@ colorButton.addEventListener('click', () => {
     colorButtonSelected = true;
     whiteButtonSelected = false;
     rainbowButtonSelected = false;
+    setSelectedButton();
 });
 
 whiteButton.addEventListener('click', () => {
     whiteButtonSelected = true;
     colorButtonSelected = false;
     rainbowButtonSelected = false;
+    setSelectedButton();
 });
 
 rainbowButton.addEventListener('click', () => {
     rainbowButtonSelected = true;
     whiteButtonSelected = false;
     colorButtonSelected = false;
+    setSelectedButton();
 });
 
 clearButton.addEventListener('click', () => {
     cells.forEach(cell => cell.style.backgroundColor = 'white');
 });
+
+function setSelectedButton(){
+    if(colorButtonSelected === true){
+        colorButton.classList.add('selected');
+        whiteButton.classList.remove('selected');
+        rainbowButton.classList.remove('selected');
+    }
+    else if(whiteButtonSelected === true){
+        whiteButton.classList.add('selected');
+        colorButton.classList.remove('selected');
+        rainbowButton.classList.remove('selected');
+    }
+    else if(rainbowButtonSelected === true){
+        rainbowButton.classList.add('selected');
+        colorButton.classList.remove('selected');
+        whiteButton.classList.remove('selected');
+    }
+}
 
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");

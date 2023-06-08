@@ -29,6 +29,30 @@
   gap: 10px;
 }
 
+.colorPicker{
+  align-self: center;
+}
+
+button {
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  background-color: #d3d3d3;
+  color: #333333;
+}
+
+button:hover {
+  background-color: #ebe9e9;
+}
+
+.selected {
+  background-color: #333333;
+  color: #d3d3d3;
+}
+
+.selected:hover {
+  background-color: #494848;
+}
 
 .slidecontainer {
   width: 100%;
